@@ -36,3 +36,11 @@ The existing `/newsletters/2026/august/` page and archive remain in the package.
 - Welcome copy and newsletter/archive buttons sit directly below the image.
 - No extra homepage copy was added.
 - Other site photography received only mild visual enhancement; image content/framing was preserved.
+
+## v3.3 August newsletter update
+- August newsletter now uses the exact `Pool Header.png` as a full-width top image.
+- Live text beneath reads:
+  - August 2026
+  - Our community. Our home.
+  - A summer update on ARC, community improvements, pool and spa maintenance, safety, finances and what’s ahead.
+- Header image is displayed without cropping so embedded artwork/text remains visible.
