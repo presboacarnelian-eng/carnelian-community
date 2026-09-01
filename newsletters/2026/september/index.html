@@ -1,79 +1,178 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Carnelian Community Newsletter — September 2026">
-  <title>September 2026 Newsletter | Carnelian</title>
-  <link rel="stylesheet" href="../../../assets/site.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Carnelian September 2026 Community Newsletter">
+<title>September 2026 Newsletter | Carnelian</title>
+<link rel="stylesheet" href="../../../assets/site.css">
+<style>
+:root{
+  --sep-green:#23492f;
+  --sep-green-2:#365f3d;
+  --sep-cream:#fbfaf6;
+  --sep-line:#ddd9ce;
+  --sep-rust:#a94627;
+  --sep-soft:#f4f4ee;
+}
+body{background:#fff}
+.news-shell{background:#fff}
+.news-hero{position:relative;overflow:hidden;border-bottom:1px solid var(--sep-line)}
+.news-hero img{display:block;width:100%;height:clamp(240px,34vw,430px);object-fit:cover}
+.news-hero:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(12,35,22,.08),rgba(12,35,22,.18))}
+.issue-banner{background:linear-gradient(180deg,#fff,#fbfaf6);border-bottom:1px solid var(--sep-line)}
+.issue-banner .container{padding-top:34px;padding-bottom:28px}
+.issue-kicker{color:var(--sep-rust);font-weight:900;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
+.issue-banner h1{font-family:Georgia,serif;color:var(--sep-green);font-size:clamp(2.8rem,6vw,5.2rem);margin:.25rem 0 .4rem;line-height:1}
+.issue-banner .sub{font-size:1.12rem;color:#3e4942;margin:0 0 .7rem}
+.preview-pill{display:inline-block;background:#fff2dd;color:#7b5316;border:1px solid #dfc68f;border-radius:999px;padding:7px 12px;font-weight:800;font-size:.76rem;letter-spacing:.05em;text-transform:uppercase}
+.news-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:34px;padding-top:34px;padding-bottom:52px}
+.news-main{min-width:0}
+.story-row{display:grid;grid-template-columns:minmax(220px,42%) 1fr;gap:24px;padding:0 0 24px;margin:0 0 24px;border-bottom:1px solid var(--sep-line);align-items:start}
+.story-row:last-of-type{border-bottom:0}
+.story-row img{width:100%;aspect-ratio:1.35/1;object-fit:cover;border-radius:8px;display:block}
+.story-title{display:flex;align-items:flex-start;gap:12px;margin:0 0 8px}
+.story-icon{width:44px;height:44px;min-width:44px;border-radius:50%;display:grid;place-items:center;font-size:1.25rem;background:#e8efe5;color:var(--sep-green)}
+.story-row.safety .story-icon{background:#f7e8e2;color:#9a2b1d}
+.story-title h2{font-family:Georgia,serif;color:var(--sep-green);font-size:1.55rem;line-height:1.1;margin:3px 0 0}
+.story-row p,.story-row li{color:#39443d;line-height:1.55}
+.story-row ul{margin:.55rem 0 .65rem;padding-left:20px}
+.story-note{font-style:italic;color:var(--sep-green)!important}
+.thanks{display:flex;gap:16px;align-items:flex-start;border:1px solid #d4dacd;background:linear-gradient(135deg,#f6f8f2,#fbfaf6);border-radius:10px;padding:20px}
+.thanks .story-icon{margin-top:2px}
+.thanks h3{font-family:Georgia,serif;color:var(--sep-green);margin:0 0 6px;font-size:1.3rem}
+.thanks p{margin:0;color:#445047}
+.news-side{align-self:start;border:1px solid var(--sep-line);border-radius:10px;overflow:hidden;background:#fff}
+.side-block{padding:22px;border-bottom:1px solid var(--sep-line)}
+.side-block:last-child{border-bottom:0}
+.side-block h3{font-family:Georgia,serif;color:var(--sep-green);font-size:1.25rem;margin:0 0 14px}
+.issue-list{list-style:none;padding:0;margin:0}
+.issue-list li{display:flex;gap:10px;align-items:flex-start;margin:0 0 14px;color:#34413a}
+.issue-dot{width:34px;height:34px;min-width:34px;border-radius:50%;background:#e8efe5;display:grid;place-items:center}
+.side-btn{display:block;text-align:center;background:var(--sep-green);color:#fff!important;text-decoration:none;padding:11px 14px;border-radius:6px;font-weight:800;margin-top:12px}
+.contact-lines p{margin:.45rem 0;color:#3e4942}
+.privacy-note{background:#f7f4ee;border:1px solid #e1dbce;border-radius:7px;padding:14px;font-size:.88rem;color:#4c514d;line-height:1.45}
+.draft-review{margin-top:20px;padding:13px 15px;background:#fff8e8;border:1px solid #e6d19f;border-radius:8px;color:#68521c;font-size:.92rem}
+.news-footer{background:var(--sep-green);color:#fff;padding:26px 0;font-size:.9rem}
+.news-footer a{color:#fff}
+@media(max-width:900px){.news-grid{grid-template-columns:1fr}.news-side{order:-1}.story-row{grid-template-columns:1fr}.story-row img{aspect-ratio:16/9}}
+@media(max-width:650px){.news-grid{gap:22px}.issue-banner .container{padding-top:26px;padding-bottom:22px}.story-row{gap:16px}.news-side{border-radius:8px}}
+</style>
 </head>
 <body>
 <header class="topbar">
   <div class="container nav">
     <a class="brand" href="../../../">CARNELIAN</a>
-    <nav class="navlinks"><a href="../../../">Home</a><a href="../../../archive.html">Archive</a><a href="../../../contractors/">Contractors</a></nav>
+    <nav class="navlinks">
+      <a href="../../../">Home</a>
+      <a href="../../../archive.html">Newsletters</a>
+      <a href="../../../resources/">Resources</a>
+      <a href="../../../resources/#arc">ARC Review</a>
+      <a href="../../../#contact">Contact</a>
+    </nav>
   </div>
 </header>
 
-<main>
-  <section class="issue-hero">
+<main class="news-shell">
+  <section class="news-hero">
+    <img src="../../../assets/images/september-carnelian-rain.png" alt="Carnelian community street during a September rainstorm">
+  </section>
+
+  <section class="issue-banner">
     <div class="container">
-      <div class="meta">Monthly Community Newsletter</div>
-      <h1>September 2026</h1>
-      <p>News, projects, reminders and updates from around Carnelian.</p>
+<div class="issue-kicker" style="margin-top:18px">September 2026</div>
+      <h1>Carnelian Community Newsletter</h1>
+      <p class="sub">Keeping neighbors informed and our community connected.</p>
+      <p style="max-width:780px;margin:0;color:#4b554f">As we head into the wetter months, a little preparation and awareness can go a long way in protecting our homes, conserving water and keeping our community safe. Thank you for doing your part.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container issue-layout">
-      <article class="article">
-        <div class="kicker">From the Board President</div>
-        <h2>Community update</h2>
-        <p class="lead">This opening paragraph is where the monthly message goes. It stays as real text, so it remains sharp on phones, tablets, and large screens.</p>
-        <p>Use this space for a conversational update about what was completed, what residents can expect next, and anything the Board wants the community to know.</p>
+  <section>
+    <div class="container news-grid">
+      <div class="news-main">
+        <article class="story-row">
+          <img src="../../../assets/images/september-storm-drain.jpg" alt="Leaves and debris collecting around a neighborhood storm drain after rain">
+          <div>
+            <div class="story-title"><div class="story-icon">🌧</div><h2>Prepare for Wet Weather and Prevent Flooding</h2></div>
+            <p>We are expecting a wet winter. Let’s work together to reduce the risk of flooding and keep water flowing where it should.</p>
+            <ul>
+              <li>Keep drains, grates and downspouts clear.</li>
+              <li>Remove leaves, debris and sediment before storms arrive.</li>
+              <li>Check drainage paths around your property.</li>
+              <li>Use sandbags where appropriate for known runoff concerns.</li>
+              <li>Report standing water or common-area drainage issues to property management.</li>
+            </ul>
+            <p class="story-note">A little preparation today can prevent bigger problems tomorrow—especially for our neighbors.</p>
+          </div>
+        </article>
 
-        <div class="image-feature">
-          <img src="../../../assets/images/project-placeholder.svg" alt="Community project visual placeholder">
+        <article class="story-row">
+          <img src="../../../assets/images/september-sprinkler-runoff.jpg" alt="Sprinkler overspray reaching pavement and creating runoff">
+          <div>
+            <div class="story-title"><div class="story-icon">💧</div><h2>Check Your Sprinklers and Conserve Water</h2></div>
+            <p>Broken or misaligned sprinklers waste water and can cause runoff into neighboring yards, streets and walkways.</p>
+            <ul>
+              <li>Run each irrigation zone and watch where the water goes.</li>
+              <li>Adjust sprinkler heads that spray sidewalks, walls, driveways or neighboring property.</li>
+              <li>Repair broken heads, leaks and valves promptly.</li>
+              <li>Adjust watering schedules as seasonal conditions change.</li>
+            </ul>
+            <p class="story-note">Conserving water protects our community, reduces unnecessary runoff and respects a limited resource.</p>
+          </div>
+        </article>
+
+        <article class="story-row safety">
+          <img src="../../../assets/images/september-stop-sign.jpg" alt="Residential stop sign on a neighborhood street">
+          <div>
+            <div class="story-title"><div class="story-icon">🚗</div><h2>Safety Starts With All of Us</h2></div>
+            <p>Residents have reported vehicles moving through stop signs without coming to a complete stop, as well as drivers appearing distracted by mobile devices.</p>
+            <ul>
+              <li>Come to a complete STOP at every stop sign.</li>
+              <li>Look carefully before entering an intersection.</li>
+              <li>Stay off your phone while driving.</li>
+              <li>Watch for pedestrians, cyclists, children, pets and neighbors.</li>
+            </ul>
+            <p class="story-note">Let’s keep Carnelian safe for everyone.</p>
+          </div>
+        </article>
+
+        <div class="thanks">
+          <div class="story-icon">🏡</div>
+          <div><h3>Thank You for Doing Your Part</h3><p>Small actions by each of us make a big difference in keeping Carnelian beautiful, safe and welcoming. We appreciate our neighbors and the care you show every day.</p></div>
         </div>
+</div>
 
-        <div class="kicker">Community Improvements</div>
-        <h2>Entrance & landscape improvements</h2>
-        <p>This section is designed for a rich hero rendering, actual community photos, before-and-after views, or a combination of all three. Captions and explanatory text remain HTML.</p>
-        <p>When we create the real issue, the placeholder image above can be replaced with a polished Carnelian entrance rendering based on your actual community photographs.</p>
-
-        <hr>
-
-        <div class="kicker">Resident Reminder</div>
-        <h2>Pool, gates & common areas</h2>
-        <p>Use concise paragraphs and bolded dates here. Avoid publishing gate codes, homeowner-specific details, security procedures, or private Board material.</p>
-
-        <hr>
-
-        <div class="kicker">Looking Ahead</div>
-        <h2>Upcoming projects</h2>
-        <p>Give residents a short preview of the next improvement or maintenance item and link to any public supporting information when appropriate.</p>
-      </article>
-
-      <aside class="sidebar">
-        <div class="card">
-          <div class="kicker">At a glance</div>
-          <h3>September</h3>
-          <p><strong>Completed:</strong><br>Entrance / landscape item</p>
-          <p><strong>Reminder:</strong><br>Pool and community areas</p>
-          <p><strong>Upcoming:</strong><br>Gate / maintenance item</p>
-          <hr>
-          <p><strong>Property Manager</strong><br>Bryant Sanchez<br><a href="tel:+17145089070">(714) 508-9070 ext. 313</a><br><a href="mailto:bsanchez@optimumpm.com">bsanchez@optimumpm.com</a></p>
+      <aside class="news-side">
+        <div class="side-block">
+          <h3>In This Issue</h3>
+          <ul class="issue-list">
+            <li><span class="issue-dot">🌧</span><span>Prepare for Wet Weather and Prevent Flooding</span></li>
+            <li><span class="issue-dot">💧</span><span>Check Your Sprinklers and Conserve Water</span></li>
+            <li><span class="issue-dot">🚗</span><span>Safety Starts With All of Us</span></li>
+          </ul>
+        </div>
+        <div class="side-block">
+          <h3>More Ways to Stay Informed</h3>
+          <p>Visit the Carnelian website anytime for important updates, homeowner resources and past newsletters.</p>
+          <a class="side-btn" href="../../../">Visit Carnelian Website</a>
+        </div>
+        <div class="side-block contact-lines">
+          <h3>Have a Question?</h3>
+          <p>Contact our Property Manager:</p>
+          <p><strong>Bryant Sanchez</strong></p>
+          <p>☎ <a href="tel:+17145089070">(714) 508-9070, ext. 313</a></p>
+          <p>✉ <a href="mailto:bsanchez@optimumpm.com">bsanchez@optimumpm.com</a></p>
+        </div>
+        <div class="side-block">
+          <div class="privacy-note">Public community information only. Access credentials, homeowner-specific information and private Board material is not published here.</div>
         </div>
       </aside>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="container">
-    <strong>Property Manager: Bryant Sanchez</strong> · <a href="tel:+17145089070">(714) 508-9070 ext. 313</a> · <a href="mailto:bsanchez@optimumpm.com">Email</a><br>
-    <a href="../../../archive.html">← Newsletter archive</a> · <a href="../../../contractors/">Contractor Resources</a>
-  </div>
+<footer class="news-footer">
+  <div class="container">© 2026 Carnelian Maintenance Corporation · September 2026 Newsletter</div>
 </footer>
 </body>
 </html>

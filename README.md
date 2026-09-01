@@ -57,3 +57,52 @@ The existing `/newsletters/2026/august/` page and archive remain in the package.
 ### Future contractor listings
 Keep the public page curated. Before adding a provider, confirm the business name, service category, phone/website, California license status where applicable, insurance information where appropriate, and Board/management approval to list the provider.
 
+
+
+## v3.6 update
+- Added evergreen Owner Resources / Homeowner Help Center explaining Board vs. property management vs. homeowner roles.
+- Added Optimum Owner Portal and Member Services links plus Bryant Sanchez login/support contact.
+- Added owner-service guidance for dues, governing documents, compliance/notices, budgets, requests and key fobs.
+- Added ARC resource section with a repository location for the downloadable Architectural Application PDF.
+- Replaced the September placeholder with a complete DRAFT/PREVIEW newsletter on wet-weather drainage, sprinkler runoff/water conservation and stop-sign/distracted-driving safety.
+- September remains intentionally unpromoted from the homepage/archive pending Board approval.
+
+
+## v3.6 finalization
+- Added the official 5-page Carnelian Architectural Review Application PDF to `resources/`.
+- Expanded ARC instructions to match the application: complete form, supporting site/plot information, submit documentation, and wait for approval before work begins.
+- September 2026 newsletter remains a draft preview and is not promoted as the latest newsletter.
+
+
+## v3.7 update
+- Added actual photo visuals to the September 2026 draft newsletter: post-rain neighborhood hero, storm-drain debris, sprinkler runoff, and residential stop sign.
+- Newsletter headlines and copy remain live HTML text.
+- Removed the internal maintenance note from the Board, management & homeowners section.
+
+
+## v3.8
+- Restyled the September 2026 draft newsletter to match the approved sample concept: wide post-rain hero, live HTML headlines/body copy, photo-led topic rows, issue sidebar, management contact panel and community footer.
+- Removed the internal future-management-company explanatory sentence from Owner Resources.
+- September remains a draft and is not promoted as the latest published newsletter.
+
+
+## v3.9
+- September 2026 newsletter hero replaced with an actual Carnelian community rain photo supplied for the newsletter.
+- September remains a draft preview pending approval.
+
+
+## v3.10
+- Added a prominent but friendly Wednesday Street Cleaning reminder to the main homepage.
+- Reminder asks residents and guests to move vehicles so the sweeper can service the community.
+- Includes household members, tenants and guests without singling out renters.
+- Does not reference future security or parking enforcement.
+- Preserves the September 2026 newsletter draft and the actual Carnelian rain hero image from v3.9.
+
+
+## v3.10 — September Launch
+- September 2026 newsletter is now a published issue rather than a draft preview.
+- Removed the draft-preview badge and Board review notice.
+- September is promoted from the homepage as the current newsletter.
+- Archive updated so September is treated as a published issue.
+- Preserves the actual Carnelian rainy-street hero image.
+- Preserves the Wednesday Street Cleaning homepage reminder.
