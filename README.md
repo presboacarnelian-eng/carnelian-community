@@ -132,3 +132,9 @@ Keep the public page curated. Before adding a provider, confirm the business nam
 - Changed the homepage CTA to the evergreen wording: "Read the latest Newsletter".
 - Enhanced the existing Carnelian entrance photo only with mild tonal, color and sharpening adjustments.
 - No objects, landscaping, structures or other scene content were added or removed.
+
+
+## v3.14
+- Replaced the image in the homepage “Stay connected to what’s happening” / Latest Community Update card with the approved upgraded Carnelian entrance image.
+- Preserved September 2026 as the currently promoted newsletter month.
+- Preserved the evergreen “Read the latest Newsletter” button wording.
