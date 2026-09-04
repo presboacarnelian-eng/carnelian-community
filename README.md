@@ -48,7 +48,7 @@ The existing `/newsletters/2026/august/` page and archive remain in the package.
 ## v3.4 updates
 - Preserves the existing v3.3 site structure and content.
 - Home hero image updated from `Front Entrance Header3.png` to `Front Entrance Header31.png`.
-- Property Manager contact updated to Bryant Sanchez, office `(714) 508-9070 ext. 313`, email `bsanchez@optimumpm.com`.
+- Property Manager contact updated to Bryant Sanchez, office `(714) 508-9070 ext. 284`, email `bsanchez@optimumpm.com`.
 - Home `Contact Management` quick link continues to jump to the on-page contact section, now with full contact details.
 - August 2026 newsletter footer includes current property-manager contact information.
 - September 2026 placeholder/future-newsletter template includes the same management details.
@@ -106,3 +106,21 @@ Keep the public page curated. Before adding a provider, confirm the business nam
 - Archive updated so September is treated as a published issue.
 - Preserves the actual Carnelian rainy-street hero image.
 - Preserves the Wednesday Street Cleaning homepage reminder.
+
+
+## v3.11 — Parking Rules & September Promotion
+- September 2026 remains the current promoted newsletter.
+- Added a resident-facing Parking Rules & Main Points page.
+- Added the official Parking Rules 2026 and Enforcement Actions Policy 2026 PDFs as downloadable resources.
+- Security Patrol Checklist was used as implementation context but is not published on the resident site.
+- Added parking responsibility, guest parking, 72-hour limit, Wednesday street-cleaning, vehicle requirements, progressive enforcement and immediate safety-tow summaries.
+- Updated Bryant Sanchez's extension throughout the site to Ext. 284.
+- Added Bryant's small portrait to the main homepage contact section only; newsletter pages remain photo-free for management contact.
+
+
+## v3.12
+- Restyled the Parking Rules & Main Points Quick Access tile to match the existing white Quick Access cards.
+- Added Bryant Sanchez's portrait to the upper-right of the Community Management panel on the homepage only.
+- Moved the Email Bryant button directly beneath his portrait.
+- Preserved the existing Community Management copy and contact cards.
+- Corrected the Quick Access latest-newsletter label to September Newsletter.

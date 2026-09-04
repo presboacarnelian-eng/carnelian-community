@@ -92,3 +92,8 @@
 .management-strip a{color:var(--navy);font-weight:750}
 @media(max-width:900px){.contractor-grid{grid-template-columns:1fr 1fr}.contact-details{grid-template-columns:1fr}}
 @media(max-width:650px){.contractor-grid{grid-template-columns:1fr}}
+
+.manager-photo-panel{margin-left:8px}
+@media(max-width:650px){
+  .manager-photo-panel{width:100%!important;max-width:190px;margin:24px 0 0}
+}
