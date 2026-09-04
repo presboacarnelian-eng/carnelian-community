@@ -124,3 +124,11 @@ Keep the public page curated. Before adding a provider, confirm the business nam
 - Moved the Email Bryant button directly beneath his portrait.
 - Preserved the existing Community Management copy and contact cards.
 - Corrected the Quick Access latest-newsletter label to September Newsletter.
+
+
+## v3.13
+- Kept the Latest Community Update month badge as September 2026.
+- Future newsletter launches should update this badge to the promoted month.
+- Changed the homepage CTA to the evergreen wording: "Read the latest Newsletter".
+- Enhanced the existing Carnelian entrance photo only with mild tonal, color and sharpening adjustments.
+- No objects, landscaping, structures or other scene content were added or removed.
