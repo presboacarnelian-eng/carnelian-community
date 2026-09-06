@@ -138,3 +138,18 @@ Keep the public page curated. Before adding a provider, confirm the business nam
 - Replaced the image in the homepage “Stay connected to what’s happening” / Latest Community Update card with the approved upgraded Carnelian entrance image.
 - Preserved September 2026 as the currently promoted newsletter month.
 - Preserved the evergreen “Read the latest Newsletter” button wording.
+
+
+## v3.15 — Homepage refinement & Emergency Preparedness
+- Fixed the Latest Community Update image at the CSS source so it now uses `carnelian-entrance-latest.png`.
+- Simplified the homepage navigation.
+- Moved Wednesday Street Cleaning below the hero and reduced it to a concise reminder.
+- Moved Quick Access directly below the Latest Community Update.
+- Added an Emergency Preparedness & Disaster Recovery tile under “Find what you need.”
+- Added a new `/preparedness/` homeowner education page using City of Gardena, Alert SouthBay, Tri-City CERT, Ready.gov, California Earthquake Warning and FEMA resources.
+- Removed the redundant “A Look Back” homepage section.
+- Updated the Latest Community Update supporting copy.
+- Corrected the September archive entry from placeholder to published issue.
+- Softened Owner Resources wording to “Start with the portal for routine owner needs.”
+- Removed the internal patrol-checklist reference from the public parking page.
+- Added the GitHub Pages CNAME for carneliancommunity.com.
