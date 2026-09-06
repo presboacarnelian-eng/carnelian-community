@@ -38,7 +38,7 @@ The existing `/newsletters/2026/august/` page and archive remain in the package.
 - Other site photography received only mild visual enhancement; image content/framing was preserved.
 
 ## v3.3 August newsletter update
-- August newsletter now uses the exact `Pool Header.png` as a full-width top image.
+- August newsletter now uses the exact `Pool Header.jpg` as a full-width top image.
 - Live text beneath reads:
   - August 2026
   - Our community. Our home.
@@ -47,7 +47,7 @@ The existing `/newsletters/2026/august/` page and archive remain in the package.
 
 ## v3.4 updates
 - Preserves the existing v3.3 site structure and content.
-- Home hero image updated from `Front Entrance Header3.png` to `Front Entrance Header31.png`.
+- Home hero image updated from `Front Entrance Header3.png` to `Front Entrance Header31.jpg`.
 - Property Manager contact updated to Bryant Sanchez, office `(714) 508-9070 ext. 284`, email `bsanchez@optimumpm.com`.
 - Home `Contact Management` quick link continues to jump to the on-page contact section, now with full contact details.
 - August 2026 newsletter footer includes current property-manager contact information.
@@ -153,3 +153,11 @@ Keep the public page curated. Before adding a provider, confirm the business nam
 - Softened Owner Resources wording to “Start with the portal for routine owner needs.”
 - Removed the internal patrol-checklist reference from the public parking page.
 - Added the GitHub Pages CNAME for carneliancommunity.com.
+
+
+## v3.16 photo and meeting refresh
+- Added a prominent upcoming Board Meeting card to the homepage.
+- Added Meetings to primary navigation and Quick Access.
+- Refreshed meeting imagery using the Pool & Amenities photo set.
+- Updated the Latest Community Update image to a neighborhood streetscape.
+- Refreshed Around Carnelian with entrance, pool/amenities and neighborhood street photography.

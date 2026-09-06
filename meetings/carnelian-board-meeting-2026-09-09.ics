@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Carnelian Community//Board Meeting//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:20260909T190000-carnelian-board-meeting@carneliancommunity.com
+DTSTAMP:20260906T153000Z
+DTSTART;TZID=America/Los_Angeles:20260909T190000
+DTEND;TZID=America/Los_Angeles:20260909T200000
+SUMMARY:Carnelian HOA Board Meeting - General Session
+LOCATION:Carnelian Pool Area & Zoom
+DESCRIPTION:General Session at 7:00 PM. Pool Area and via Zoom. Executive Session begins at 6:00 PM and is closed to owners unless specifically permitted. See the posted agenda on carneliancommunity.com for official meeting information.
+URL:https://carneliancommunity.com/meetings/
+END:VEVENT
+END:VCALENDAR
