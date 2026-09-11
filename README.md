@@ -161,3 +161,10 @@ Keep the public page curated. Before adding a provider, confirm the business nam
 - Refreshed meeting imagery using the Pool & Amenities photo set.
 - Updated the Latest Community Update image to a neighborhood streetscape.
 - Refreshed Around Carnelian with entrance, pool/amenities and neighborhood street photography.
+
+
+## v3.17 Financial Health refresh
+- Added a public-safe Financial Health page using qualitative meters and status labels instead of dollar amounts or account balances.
+- Added Financial Health navigation and homepage access.
+- Updated the next Board meeting to Wednesday, October 14, 2026; October agenda is marked coming soon.
+- Kept the September 9, 2026 agenda available under Recent Meeting Documents.
