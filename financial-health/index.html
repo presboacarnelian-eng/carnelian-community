@@ -1,102 +1,409 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Carnelian Community public financial health summary — plain-English trends and status indicators without publishing private dollar amounts.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Financial Health | Carnelian Community</title>
-<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f4f5f7; --surface:#ffffff; --surface-2:#eceef2; --line:#d9dce3;
+  --ink:#1b1d22; --ink-2:#4b5060; --ink-3:#6f7585;
+  --accent:#b3462b; --accent-ink:#8e3620; --accent-soft:#f6e6e0;
+  --good:#1f7a3a; --good-soft:#e2f2e6; --watch:#9a6400; --watch-soft:#fbf0d3;
+  --bar:#b3462b; --bar-soft:#e9b8a9; --track:#e3e6ec; --ref:#4b5060;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#15171b; --surface:#1e2127; --surface-2:#272b33; --line:#353a45;
+    --ink:#f0f1f4; --ink-2:#b8bcc8; --ink-3:#8e94a3;
+    --accent:#e0745a; --accent-ink:#f0a48e; --accent-soft:#3a251f;
+    --good:#5fc27c; --good-soft:#1f3a28; --watch:#e6b04a; --watch-soft:#3b3015;
+    --bar:#e0745a; --bar-soft:#6b3a2c; --track:#2f333c; --ref:#b8bcc8;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#15171b; --surface:#1e2127; --surface-2:#272b33; --line:#353a45;
+  --ink:#f0f1f4; --ink-2:#b8bcc8; --ink-3:#8e94a3;
+  --accent:#e0745a; --accent-ink:#f0a48e; --accent-soft:#3a251f;
+  --good:#5fc27c; --good-soft:#1f3a28; --watch:#e6b04a; --watch-soft:#3b3015;
+  --bar:#e0745a; --bar-soft:#6b3a2c; --track:#2f333c; --ref:#b8bcc8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55;padding-inline:16px;padding-block:0 48px}
+h1,h2,h3{font-family:Manrope,"Public Sans",system-ui,sans-serif;text-wrap:balance;margin:0}
+.wrap{max-width:1040px;margin:0 auto}
+.site-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-family:Manrope,sans-serif;font-weight:800;font-size:18px;letter-spacing:-.01em}
+.brand .gem{width:22px;height:22px;border-radius:6px 2px 6px 2px;background:linear-gradient(135deg,var(--accent),var(--accent-ink));transform:rotate(45deg) scale(.8)}
+.site-nav ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:0;padding:0;font-size:14px;font-weight:500;color:var(--ink-2)}
+.site-nav li.on{color:var(--accent);font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:2px}
+.mock-note{font-size:12px;color:var(--ink-3);text-align:center;padding:10px 0 0;letter-spacing:.02em}
+header.page{padding:36px 0 24px;display:grid;gap:8px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+header h1{font-size:clamp(28px,4vw,40px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+header .lede{max-width:62ch;color:var(--ink-2);font-size:17px;margin:4px 0}
+.meta{display:flex;gap:6px 18px;flex-wrap:wrap;font-size:13px;color:var(--ink-3);margin-top:4px}
+.meta b{color:var(--ink-2);font-weight:600}
+.fy{display:grid;gap:6px;margin-top:8px;max-width:520px}
+.fy .lbl{display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--ink-3);font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+.fy .track{height:8px;border-radius:4px;background:var(--track);overflow:hidden}
+.fy .fill{height:100%;width:8.3%;background:var(--accent);border-radius:4px}
+.banner{display:flex;gap:12px;align-items:flex-start;background:var(--good-soft);border-radius:10px;padding:14px 16px;margin-top:6px;max-width:760px}
+.banner svg{flex:none;width:20px;height:20px;margin-top:2px;color:var(--good)}
+.banner p{margin:0;font-size:15px;color:var(--ink)}
+.banner b{color:var(--good)}
+section{margin-top:28px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sec-head h2{font-size:20px;font-weight:700;letter-spacing:-.01em}
+.sec-head p{margin:0;font-size:14px;color:var(--ink-3)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:760px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:460px){.tiles{grid-template-columns:1fr}}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:8px;align-content:start}
+.tile .k{font-size:13px;color:var(--ink-2);font-weight:500}
+.tile .v{font-family:Manrope,sans-serif;font-size:30px;font-weight:800;letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
+.tile .v small{font-size:14px;font-weight:600;color:var(--ink-3);letter-spacing:0;margin-left:4px}
+.tile .n{font-size:13px;color:var(--ink-3);line-height:1.4}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:3px 9px 3px 7px;border-radius:999px;width:max-content;letter-spacing:.02em}
+.chip svg{width:12px;height:12px}
+.chip.good{background:var(--good-soft);color:var(--good)}
+.chip.watch{background:var(--watch-soft);color:var(--watch)}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:820px){.charts{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px 14px}
+.card h3{font-size:16px;font-weight:700}
+.card .sub{font-size:13px;color:var(--ink-3);margin:2px 0 14px}
+svg.chart{width:100%;height:auto;display:block;overflow:visible;font-family:"Public Sans",system-ui,sans-serif}
+svg.chart text{fill:var(--ink-2);font-size:12px;pointer-events:none}
+svg.chart text.ax{fill:var(--ink-3);font-size:11px}
+svg.chart text.val{fill:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+svg.chart .grid{stroke:var(--line);stroke-width:1}
+svg.chart .refline{stroke:var(--ref);stroke-width:1.5}
+svg.chart .bar{fill:var(--bar)}
+svg.chart .bar.soft{fill:var(--bar-soft)}
+svg.chart .bar.good{fill:var(--good)}
+svg.chart .bar.watch{fill:var(--watch)}
+svg.chart .hit{fill:transparent}
+svg.chart g.row:hover .bar{opacity:.82}
+.legend{display:flex;gap:6px 16px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:6px 9px;border-radius:6px;opacity:0;transition:opacity .12s;z-index:9;white-space:nowrap}
+details.tbl{margin-top:10px;font-size:13px}
+details.tbl summary{cursor:pointer;color:var(--ink-3);font-weight:500}
+details.tbl table{border-collapse:collapse;width:100%;margin-top:8px}
+details.tbl th,details.tbl td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+details.tbl th{font-weight:600;color:var(--ink-2)}
+details.tbl td:last-child,details.tbl th:last-child{text-align:right}
+.closeup{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:820px){.closeup{grid-template-columns:1fr}}
+.reasons{margin:0;padding:0;list-style:none;display:grid;gap:10px}
+.reasons li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:14px;color:var(--ink-2)}
+.reasons li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink-3);margin-top:8px}
+.reasons b{color:var(--ink);font-weight:600}
+.closeup .takeaway{margin:14px 0 0;font-size:14px;color:var(--ink);padding-top:12px;border-top:1px solid var(--line)}
+.narrative{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:start}
+@media (max-width:820px){.narrative{grid-template-columns:1fr}}
+.narrative .card p{margin:0 0 12px;max-width:66ch;color:var(--ink)}
+.narrative .card p:last-child{margin-bottom:0}
+.narrative .card h3{margin-bottom:10px}
+.watchlist ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.watchlist li{display:grid;grid-template-columns:auto 1fr;gap:10px;font-size:14px;color:var(--ink-2)}
+.watchlist .dot{width:10px;height:10px;border-radius:50%;margin-top:6px}
+.watchlist .dot.good{background:var(--good)}
+.watchlist .dot.watch{background:var(--watch)}
+.watchlist li b{color:var(--ink);font-weight:600}
+.about{margin-top:28px;padding:16px 18px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 10px 10px 0;font-size:14px;color:var(--ink-2)}
+.about b{color:var(--ink)}
+.about p{margin:0 0 8px}
+.about p:last-child{margin:0}
+footer{margin-top:28px;font-size:12px;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px}
+.sig{font-family:Manrope,sans-serif;font-weight:700;color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media print{.tile,.card,.about,.charts,.tiles,.banner{break-inside:avoid}.sec-head{break-after:avoid}body{padding-block:0 12px}.mock-note{display:none}details.tbl{display:none}}
+ .site-nav a{color:inherit;text-decoration:none}.site-nav a:hover{text-decoration:underline}.site-nav li.on a{color:var(--accent)}
+  .privacy-note{margin:14px 0 0;font-size:13px;color:var(--ink-3)}
+</style>
 </head>
 <body>
-<header class="topbar"><div class="container nav"><a class="brand" href="../">CARNELIAN</a><nav class="navlinks"><a href="../meetings/">Meetings</a><a href="../archive.html">Newsletters</a><a class="active" href="./">Financial Health</a><a href="../resources/">Resources</a><a href="../parking/">Parking</a><a href="../#contact">Contact</a></nav></div></header>
-<main>
-<section class="section financial-hero-section">
-  <div class="container">
-    <div class="financial-hero">
-      <div>
-        <div class="eyebrow">From the Treasurer</div>
-        <h1>Financial Health at a Glance</h1>
-        <p>A plain-English public summary of the Association's financial condition. This page focuses on trends, status and stewardship—not bank balances, dollar amounts or homeowner-specific information.</p>
-        <div class="financial-meta"><span>Reporting period: July 2026</span><span>Updated: September 2026</span></div>
+
+<div class="wrap">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="brand" href="../" style="text-decoration:none;color:inherit"><span class="gem" aria-hidden="true"></span>Carnelian Community</a>
+    <ul><li><a href="../">Home</a></li><li><a href="../archive.html">Newsletters</a></li><li><a href="../meetings/">Meetings</a></li><li class="on"><a href="./" aria-current="page">Financial Health</a></li><li><a href="../resources/">Resources</a></li><li><a href="../#contact">Contact</a></li></ul>
+  </nav>
+  <header class="page">
+    <div class="eyebrow">From the Treasurer · November 2026 Newsletter</div>
+    <h1>Financial Health at a Glance</h1>
+    <p class="lede">A plain-English look at how the Association finished the 2025–26 fiscal year and how the new year has started. Figures are presented as percentages, ratios, and trends rather than dollar amounts. This public summary does not replace the detailed financial statements available to homeowners.</p>
+    <div class="meta"><span>Reporting through: <b>September 30, 2026</b></span><span>Current fiscal year: <b>Sept 1, 2026 – Aug 31, 2027</b></span><span>Updated: <b>November 2026</b></span></div>
+    <div class="fy" aria-label="New fiscal year progress: month 1 of 12">
+      <div class="lbl"><span>2026–27 fiscal year progress</span><span>Month 1 of 12</span></div>
+      <div class="track"><div class="fill"></div></div>
+    </div>
+    <div class="banner">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5.8 10.4l2.8 2.8 5.6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p><b>Fiscal year 2025–26 closed in the black.</b> Operating costs finished under budget, the year ended with an operating surplus, and the reserve fund grew, all without a special assessment.</p>
+    </div>
+  </header>
+
+  <section aria-labelledby="h-status">
+    <div class="sec-head"><h2 id="h-status">Six things to know</h2><p>Green means on plan. Amber means the Board is watching it.</p></div>
+    <div class="tiles">
+      <div class="tile">
+        <div class="k">2025–26 operating spending vs. budget</div>
+        <div class="v">7%<small>under</small></div>
+        <span class="chip good"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Under budget</span>
+        <div class="n">For the full year ended August 31, day-to-day operating costs came in below what the Board budgeted.</div>
       </div>
-      <div class="privacy-shield"><span aria-hidden="true">🔒</span><strong>Public-safe summary</strong><small>Exact dollar figures and account details are intentionally not published.</small></div>
+      <div class="tile">
+        <div class="k">Reserve fund growth, 2025–26</div>
+        <div class="v">+17%</div>
+        <span class="chip good"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Growing</span>
+        <div class="n">Reserves grew over the year even after paying for gate repairs and other projects directly from reserves.</div>
+      </div>
+      <div class="tile">
+        <div class="k">Monthly reserve contribution, new budget</div>
+        <div class="v">+15%</div>
+        <span class="chip good"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Increased</span>
+        <div class="n">The 2026–27 budget raises the monthly transfer to reserves, and September's transfer was made on schedule.</div>
+      </div>
+      <div class="tile">
+        <div class="k">Reserves vs. study recommendation</div>
+        <div class="v">81%<small>funded</small></div>
+        <span class="chip good"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Improving</span>
+        <div class="n">Up from 79% in the summer, measured against the prior reserve study; the 2026–27 update will refresh this target.</div>
+      </div>
+      <div class="tile">
+        <div class="k">Operating cash on hand</div>
+        <div class="v">1.5×<small>minimum</small></div>
+        <span class="chip good"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Above minimum</span>
+        <div class="n">Still comfortably above the Board's minimum for monthly bills, even after September's catch-up invoices.</div>
+      </div>
+      <div class="tile">
+        <div class="k">Homeowner accounts current</div>
+        <div class="v">97%</div>
+        <span class="chip good"><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.5l2.5 2.5L10 3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Healthy</span>
+        <div class="n">Nearly all homeowners have no balance more than 30 days past due; the few that do follow the normal collection policy.</div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section soft financial-overview-section">
-  <div class="container">
-    <div class="section-head"><div><div class="eyebrow">Six things to know</div><h2>How to read this page</h2></div><p>Each meter is qualitative. Green means the Association is generally tracking as planned. Amber means the Board is actively watching the category. The meters are not dollar scales and are not intended to replace the monthly financial statements.</p></div>
-    <div class="financial-grid">
-      <article class="health-card good">
-        <div class="health-top"><div><span class="health-label">Operating spending</span><h3>Within plan</h3></div><span class="status-pill">On Plan</span></div>
-        <div class="health-meter-segmented ontrack" role="img" aria-label="Operating spending is within plan"><span>Watch</span><span>On Track</span><span>Strong</span></div>
-        <p>Day-to-day operating expenses are tracking below the Board-approved budget for the reporting period.</p>
-      </article>
-      <article class="health-card good">
-        <div class="health-top"><div><span class="health-label">Operating liquidity</span><h3>Healthy cushion</h3></div><span class="status-pill">Healthy</span></div>
-        <div class="health-meter-segmented strong" role="img" aria-label="Operating liquidity is healthy"><span>Watch</span><span>On Track</span><span>Strong</span></div>
-        <p>Cash available for normal operating obligations remains comfortably above the Board's internal minimum.</p>
-      </article>
-      <article class="health-card good">
-        <div class="health-top"><div><span class="health-label">Reserve fund direction</span><h3>Positive trend</h3></div><span class="status-pill">Growing</span></div>
-        <div class="health-meter-segmented strong" role="img" aria-label="Reserve fund trend is positive"><span>Watch</span><span>On Track</span><span>Strong</span></div>
-        <p>Reserve balances are trending upward after planned contributions, investment earnings and completed reserve work.</p>
-      </article>
-      <article class="health-card good">
-        <div class="health-top"><div><span class="health-label">Reserve contributions</span><h3>On schedule</h3></div><span class="status-pill">On Track</span></div>
-        <div class="health-meter-segmented strong" role="img" aria-label="Reserve contributions are on schedule"><span>Watch</span><span>On Track</span><span>Strong</span></div>
-        <p>Scheduled reserve transfers have been made as planned through the reporting period.</p>
-      </article>
-      <article class="health-card good">
-        <div class="health-top"><div><span class="health-label">Long-term reserves</span><h3>Tracking to study</h3></div><span class="status-pill">Adequate</span></div>
-        <div class="health-meter-segmented ontrack" role="img" aria-label="Long-term reserve funding is tracking to the reserve study"><span>Watch</span><span>On Track</span><span>Strong</span></div>
-        <p>Reserve funding remains in a generally sound position relative to the current professional reserve-study guidance. An updated study is in progress.</p>
-      </article>
-      <article class="health-card good">
-        <div class="health-top"><div><span class="health-label">Assessment collections</span><h3>Stable</h3></div><span class="status-pill">Healthy</span></div>
-        <div class="health-meter-segmented strong" role="img" aria-label="Assessment collections are stable"><span>Watch</span><span>On Track</span><span>Strong</span></div>
-        <p>Most owner accounts remain current. Past-due accounts are handled through the Association's established collection process; individual account information is never shown here.</p>
-      </article>
-    </div>
-  </div>
-</section>
+  <section aria-labelledby="h-charts">
+    <div class="sec-head"><h2 id="h-charts">The year in two charts</h2><p>Percentages only. Hover any bar for detail.</p></div>
+    <div class="charts">
 
-<section class="section">
-  <div class="container">
-    <div class="section-head"><div><div class="eyebrow">Operating picture</div><h2>Where the Board is watching</h2></div><p>Instead of publishing exact spending percentages, this public view groups categories by how they are tracking against plan.</p></div>
-    <div class="budget-status-grid">
-      <article class="budget-card"><div class="budget-icon good-dot"></div><div><small>Landscape</small><strong>Within plan</strong><p>Routine landscape costs are tracking favorably.</p></div></article>
-      <article class="budget-card"><div class="budget-icon good-dot"></div><div><small>Maintenance & repair</small><strong>Within plan</strong><p>General maintenance remains within the expected range.</p></div></article>
-      <article class="budget-card"><div class="budget-icon good-dot"></div><div><small>Administration</small><strong>Near plan</strong><p>Administrative costs remain close to the approved budget.</p></div></article>
-      <article class="budget-card watch"><div class="budget-icon watch-dot"></div><div><small>Utilities</small><strong>Board watch</strong><p>Water costs are running above plan and usage and rates are under review.</p></div></article>
-      <article class="budget-card watch"><div class="budget-icon watch-dot"></div><div><small>Pool & spa</small><strong>Board watch</strong><p>Pool and spa service costs are above the budgeted level and are being addressed in budget planning.</p></div></article>
-      <article class="budget-card"><div class="budget-icon good-dot"></div><div><small>Overall operating</small><strong>Within plan</strong><p>Total operating spending remains in a favorable position for the reporting period.</p></div></article>
-    </div>
-  </div>
-</section>
+      <div class="card">
+        <h3>2025–26 spending by category</h3>
+        <div class="sub">Full-year actual spending as a percent of the annual budget. The line marks exactly on budget.</div>
+        <svg class="chart" viewBox="0 0 460 236" role="img" aria-label="Bar chart of fiscal year 2025-26 spending as a percent of budget by category">
+          <!-- x scale: 0..140% across x=150..430 => 2px per % -->
+          <g class="grid">
+            <line x1="150" y1="8" x2="150" y2="200"/>
+            <line x1="250" y1="8" x2="250" y2="200"/>
+            <line x1="350" y1="8" x2="350" y2="200"/>
+          </g>
+          <text class="ax" x="150" y="216" text-anchor="middle">0%</text>
+          <text class="ax" x="250" y="216" text-anchor="middle">50%</text>
+          <text class="ax" x="350" y="216" text-anchor="middle">100%</text>
+          <text class="ax" x="430" y="216" text-anchor="middle">140%</text>
 
-<section class="section soft">
-  <div class="container">
-    <div class="financial-lower-grid">
-      <article class="treasurer-note">
-        <div class="eyebrow">Treasurer's note</div><h2>Steady, with a few items under review</h2>
-        <p>The Association closed the reporting period in a generally strong position. Operating expenses remain below plan overall, reserve contributions are being made on schedule, and reserve funds continue to support long-term community needs such as gates, fencing, paving and pool-related projects.</p>
-        <p>The Board is continuing to watch utility costs and pool/spa service expenses while preparing the next budget cycle. Reserve reinvestment and the updated reserve study also remain active items.</p>
-        <p><strong>What is not shown here:</strong> bank balances, account numbers, vendor pricing, homeowner balances, delinquency amounts or other detailed financial records.</p>
-      </article>
-      <aside class="watch-panel">
-        <div class="eyebrow">Current watch list</div><h3>Items receiving Board attention</h3>
-        <div class="watch-item"><span class="watch-dot"></span><div><strong>Water costs</strong><p>Rates and usage remain under review.</p></div></div>
-        <div class="watch-item"><span class="watch-dot"></span><div><strong>Pool service costs</strong><p>Being addressed through budget planning and contract review.</p></div></div>
-        <div class="watch-item"><span class="good-dot"></span><div><strong>Reserve reinvestment</strong><p>Maturing funds are being managed with future project needs in mind.</p></div></div>
-        <div class="watch-item"><span class="good-dot"></span><div><strong>Reserve study update</strong><p>The updated study will refresh long-term funding targets.</p></div></div>
-      </aside>
+          <g class="row" data-tip="Landscape: 68% of annual budget — service contract billed below plan">
+            <rect class="hit" x="0" y="12" width="460" height="30"/>
+            <text x="142" y="32" text-anchor="end">Landscape</text>
+            <rect class="bar good" x="150" y="18" width="136" height="18"/>
+            <text class="val" x="293" y="32">68%</text>
+          </g>
+          <g class="row" data-tip="General &amp; administrative: 91% of annual budget">
+            <rect class="hit" x="0" y="44" width="460" height="30"/>
+            <text x="142" y="64" text-anchor="end">Administration</text>
+            <rect class="bar good" x="150" y="50" width="182" height="18"/>
+            <text class="val" x="358" y="64">91%</text>
+          </g>
+          <g class="row" data-tip="Contracts, maintenance &amp; repair: 92% of annual budget">
+            <rect class="hit" x="0" y="76" width="460" height="30"/>
+            <text x="142" y="96" text-anchor="end">Maintenance &amp; repair</text>
+            <rect class="bar good" x="150" y="82" width="184" height="18"/>
+            <text class="val" x="358" y="96">92%</text>
+          </g>
+          <g class="row" data-tip="Utilities: 105% of annual budget — driven by water">
+            <rect class="hit" x="0" y="108" width="460" height="30"/>
+            <text x="142" y="128" text-anchor="end">Utilities</text>
+            <rect class="bar watch" x="150" y="114" width="210" height="18"/>
+            <text class="val" x="367" y="128">105%</text>
+          </g>
+          <g class="row" data-tip="Pool &amp; spa: 127% of annual budget — service contract and supplies">
+            <rect class="hit" x="0" y="140" width="460" height="30"/>
+            <text x="142" y="160" text-anchor="end">Pool &amp; spa</text>
+            <rect class="bar watch" x="150" y="146" width="254" height="18"/>
+            <text class="val" x="411" y="160">127%</text>
+          </g>
+          <g class="row" data-tip="All operating expenses combined: 93% of annual budget">
+            <rect class="hit" x="0" y="172" width="460" height="30"/>
+            <text x="142" y="192" text-anchor="end" style="font-weight:600">All operating</text>
+            <rect class="bar" x="150" y="178" width="186" height="18"/>
+            <text class="val" x="358" y="192">93%</text>
+          </g>
+          <line class="refline" x1="350" y1="8" x2="350" y2="200"/>
+          <text class="ax" x="354" y="14">on budget</text>
+        </svg>
+        <div class="legend"><span><i style="background:var(--good)"></i>Under budget</span><span><i style="background:var(--watch)"></i>Over budget</span><span><i style="background:var(--bar)"></i>Combined</span></div>
+        <details class="tbl"><summary>View as a table</summary>
+          <table><tr><th>Category</th><th>Percent of annual budget</th></tr>
+            <tr><td>Landscape</td><td>68%</td></tr><tr><td>Administration</td><td>91%</td></tr><tr><td>Maintenance &amp; repair</td><td>92%</td></tr><tr><td>Utilities</td><td>105%</td></tr><tr><td>Pool &amp; spa</td><td>127%</td></tr><tr><td>All operating expenses</td><td>93%</td></tr></table>
+        </details>
+      </div>
+
+      <div class="card">
+        <h3>How the reserve fund moved</h3>
+        <div class="sub">Indexed to the balance on September 1, 2025 = 100, through the end of the fiscal year and the first month of the new one.</div>
+        <svg class="chart" viewBox="0 0 460 236" role="img" aria-label="Waterfall chart: reserve fund index from 100 at September 2025 to 117 at year-end and 119 at September 30, 2026">
+          <!-- y: index 0..130 -> y 200..20 (1.385 px/unit) -->
+          <g class="grid">
+            <line x1="40" y1="200" x2="440" y2="200"/>
+            <line x1="40" y1="130.8" x2="440" y2="130.8"/>
+            <line x1="40" y1="61.5" x2="440" y2="61.5"/>
+          </g>
+          <text class="ax" x="34" y="204" text-anchor="end">0</text>
+          <text class="ax" x="34" y="135" text-anchor="end">50</text>
+          <text class="ax" x="34" y="66" text-anchor="end">100</text>
+
+          <g class="row" data-tip="September 1, 2025 — starting balance = 100">
+            <rect class="hit" x="42" y="10" width="76" height="206"/>
+            <rect class="bar soft" x="58" y="61.5" width="44" height="138.5"/>
+            <text class="val" x="80" y="54" text-anchor="middle">100</text>
+            <text class="ax" x="80" y="222" text-anchor="middle">Sept 2025</text>
+          </g>
+          <g class="row" data-tip="2025–26 monthly contributions plus CD and money-market interest: +27">
+            <rect class="hit" x="122" y="10" width="76" height="206"/>
+            <rect class="bar good" x="138" y="24" width="44" height="37.5"/>
+            <text class="val" x="160" y="17" text-anchor="middle">+27</text>
+            <text class="ax" x="160" y="222" text-anchor="middle">Added</text>
+          </g>
+          <g class="row" data-tip="2025–26 reserve-funded projects (gate repairs and other capital items): −10">
+            <rect class="hit" x="202" y="10" width="76" height="206"/>
+            <rect class="bar watch" x="218" y="24" width="44" height="14.1"/>
+            <text class="val" x="240" y="17" text-anchor="middle">−10</text>
+            <text class="ax" x="240" y="222" text-anchor="middle">Projects paid</text>
+          </g>
+          <g class="row" data-tip="August 31, 2026 (fiscal year-end) — 117, up 17% for the year">
+            <rect class="hit" x="282" y="10" width="76" height="206"/>
+            <rect class="bar" x="298" y="38.1" width="44" height="161.9"/>
+            <text class="val" x="320" y="31" text-anchor="middle">117</text>
+            <text class="ax" x="320" y="222" text-anchor="middle">Year-end</text>
+          </g>
+          <g class="row" data-tip="September 30, 2026 — 119 after the first contribution of the new year">
+            <rect class="hit" x="362" y="10" width="76" height="206"/>
+            <rect class="bar" x="378" y="35.5" width="44" height="164.5"/>
+            <text class="val" x="400" y="28" text-anchor="middle">119</text>
+            <text class="ax" x="400" y="222" text-anchor="middle">Sept 2026</text>
+          </g>
+          <g class="grid"><line x1="102" y1="61.5" x2="138" y2="61.5"/><line x1="182" y1="24" x2="218" y2="24"/><line x1="262" y1="38.1" x2="298" y2="38.1"/><line x1="342" y1="38.1" x2="378" y2="38.1"/></g>
+        </svg>
+        <div class="legend"><span><i style="background:var(--bar-soft)"></i>Opening balance</span><span><i style="background:var(--good)"></i>Contributions &amp; interest</span><span><i style="background:var(--watch)"></i>Projects paid</span><span><i style="background:var(--bar)"></i>Balance</span></div>
+        <details class="tbl"><summary>View as a table</summary>
+          <table><tr><th>Step</th><th>Index (Sept 1, 2025 = 100)</th></tr>
+            <tr><td>Start of fiscal year (Sept 1, 2025)</td><td>100</td></tr><tr><td>Contributions and interest added</td><td>+27</td></tr><tr><td>Reserve projects paid</td><td>−10</td></tr><tr><td>Fiscal year-end (Aug 31, 2026)</td><td>117</td></tr><tr><td>September 30, 2026</td><td>119</td></tr></table>
+        </details>
+      </div>
     </div>
-    <div class="financial-disclaimer"><strong>About this public summary.</strong> This page is intended to help residents understand the Association's general financial direction without publishing sensitive financial details. It is not an audited financial statement. Members may request the complete monthly financial statements, annual budget and reserve study through community management or the owner portal.</div>
+  </section>
+
+  <section aria-labelledby="h-sept">
+    <div class="sec-head"><h2 id="h-sept">September close-up</h2><p>The first month of the new fiscal year.</p></div>
+    <div class="card closeup">
+      <div>
+        <h3>Why September spending looks high</h3>
+        <div class="sub">Operating spending as a percent of budget. Several bills that normally arrive month by month were posted together in September.</div>
+        <svg class="chart" viewBox="0 0 460 118" role="img" aria-label="Bar chart: September alone was 170% of its monthly budget; July through September combined was 102% of budget">
+          <!-- x: 0..180% across x=150..430 => 1.556 px per % ; 100% at 305.6 -->
+          <g class="grid">
+            <line x1="150" y1="6" x2="150" y2="84"/>
+            <line x1="227.8" y1="6" x2="227.8" y2="84"/>
+            <line x1="383.3" y1="6" x2="383.3" y2="84"/>
+          </g>
+          <text class="ax" x="150" y="100" text-anchor="middle">0%</text>
+          <text class="ax" x="227.8" y="100" text-anchor="middle">50%</text>
+          <text class="ax" x="305.6" y="100" text-anchor="middle">100%</text>
+          <text class="ax" x="383.3" y="100" text-anchor="middle">150%</text>
+          <g class="row" data-tip="September alone: 170% of its monthly operating budget">
+            <rect class="hit" x="0" y="10" width="460" height="34"/>
+            <text x="142" y="32" text-anchor="end">September alone</text>
+            <rect class="bar watch" x="150" y="18" width="264.5" height="20"/>
+            <text class="val" x="421" y="32">170%</text>
+          </g>
+          <g class="row" data-tip="July through September combined: 102% of budget — essentially on plan once billing timing evens out">
+            <rect class="hit" x="0" y="46" width="460" height="34"/>
+            <text x="142" y="68" text-anchor="end" style="font-weight:600">July–Sept combined</text>
+            <rect class="bar" x="150" y="54" width="158.7" height="20"/>
+            <text class="val" x="315" y="68">102%</text>
+          </g>
+          <line class="refline" x1="305.6" y1="6" x2="305.6" y2="84"/>
+        </svg>
+        <div class="legend"><span><i style="background:var(--watch)"></i>Single month</span><span><i style="background:var(--bar)"></i>Three months combined</span><span>Line = on budget</span></div>
+      </div>
+      <div>
+        <h3>What drove it</h3>
+        <ul class="reasons" style="margin-top:12px">
+          <li><span><b>Water bills catching up.</b> No water bills posted in July or August, so several arrived and were paid together in September.</span></li>
+          <li><span><b>Three months of landscaping.</b> Landscape service invoices for three months were billed at once.</span></li>
+          <li><span><b>One-time repairs.</b> Spa repairs, pool gate fob repairs, concrete work at the pool, and a call box microphone replacement.</span></li>
+          <li><span><b>Annual election and office costs.</b> Election administration and supplies, which land early in the fiscal year.</span></li>
+        </ul>
+        <p class="takeaway">Spread over July through September, operating spending was within about 2% of budget. The Board will keep a close eye on water, which remains above plan even after the timing evens out.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-note" class="narrative">
+    <div class="card">
+      <h3 id="h-note">Treasurer's note for November</h3>
+      <p>The Association closed its 2025–26 fiscal year on August 31 in good financial shape. Day-to-day operating costs finished about 7% under budget, revenue came in above plan thanks largely to interest earned on our reserve investments, and the year ended with an operating surplus.</p>
+      <p>Our reserve fund, which pays for long-term projects such as gates, fencing, paving, and the pool, grew about 17% during the year. That growth came after paying for this year's gate repairs and other projects directly from reserves rather than through a special assessment. Every scheduled contribution was made, and the new 2026–27 budget increases the monthly reserve contribution by about 15% to keep building toward the reserve study's recommended level.</p>
+      <p>September, the first month of the new fiscal year, showed higher-than-usual spending. That is mostly timing: water and landscaping bills that had not posted over the summer arrived together, along with several one-time pool and gate repairs and our annual election costs. Looked at across July through September, spending was essentially on budget, and operating cash remains comfortably above the Board's minimum. As always, the complete monthly financial statements are available to every member through our management company.</p>
+    </div>
+    <div class="card watchlist">
+      <h3>What the Board is watching</h3>
+      <ul>
+        <li><span class="dot watch"></span><span><b>Water costs.</b> Above budget last year and still running above plan; the new budget allows more for water, and usage is under review.</span></li>
+        <li><span class="dot watch"></span><span><b>Pool and spa costs.</b> Finished last year about 27% over budget; the service contract is being monitored closely.</span></li>
+        <li><span class="dot good"></span><span><b>Reserve investments.</b> The CD that matured this summer has been reinvested, all deposits are within FDIC insurance limits, and another CD matures in early November.</span></li>
+        <li><span class="dot good"></span><span><b>Reserve study update.</b> The 2026–27 study is underway and will refresh our long-term funding targets.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="about">
+    <p><b>About this page.</b> This summary is prepared by the Treasurer from the Association's monthly financial reports for August and September 2026 and is provided for general information only. It is unaudited and is not a financial statement. Percentages are rounded. Because this website is open to the public, dollar amounts, account details, and individual homeowner information are intentionally not shown here. Percentages and ratios do provide some insight into the Association’s finances.</p>
+    <p><b>Members</b> may request the complete monthly financial statements, the annual budget, and the reserve study from the community manager, and are welcome to bring questions to any Board meeting.</p>
   </div>
-</section>
-</main>
-<footer><div class="container"><strong>Carnelian Community</strong> · A private community<br><small>Public community information only. Access credentials, homeowner-specific information and private Board material is not published here.</small></div></footer>
+
+  <footer>
+    <span>Carnelian Maintenance Corporation · Gardena, California</span>
+    <span class="sig">Prepared by the Treasurer, Board of Directors</span>
+  </footer>
+</div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+(function(){
+  var tip=document.getElementById('tip');
+  document.querySelectorAll('svg.chart g.row').forEach(function(g){
+    g.addEventListener('mousemove',function(e){
+      tip.textContent=g.getAttribute('data-tip');
+      var x=Math.min(e.clientX+14, window.innerWidth-tip.offsetWidth-8);
+      tip.style.left=x+'px';
+      tip.style.top=(e.clientY-10)+'px';
+      tip.style.opacity=1;
+    });
+    g.addEventListener('mouseleave',function(){tip.style.opacity=0;});
+  });
+})();
+</script>
+
 </body>
 </html>

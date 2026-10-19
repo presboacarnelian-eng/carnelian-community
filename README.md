@@ -168,3 +168,10 @@ Keep the public page curated. Before adding a provider, confirm the business nam
 - Added Financial Health navigation and homepage access.
 - Updated the next Board meeting to Wednesday, October 14, 2026; October agenda is marked coming soon.
 - Kept the September 9, 2026 agenda available under Recent Meeting Documents.
+
+
+## v3.18
+Financial Health page redesigned for easier public reading: overall status first, four core categories, simplified watch list, and clear explanation of why exact dollar figures are not public.
+
+
+Version 3.19: November 2026 Financial Health content refresh based on Treasurer summary. Preserves equal-weight cards, qualitative status design and public privacy safeguards.
