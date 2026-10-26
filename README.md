@@ -175,3 +175,7 @@ Financial Health page redesigned for easier public reading: overall status first
 
 
 Version 3.19: November 2026 Financial Health content refresh based on Treasurer summary. Preserves equal-weight cards, qualitative status design and public privacy safeguards.
+
+
+## v3.23 — November 2026 newsletter
+Added newsletters/2026/november/index.html and its two self-contained image assets. Removed duplicate broken gate photo placeholders. Updated homepage, highlights and archive latest links. October and prior newsletters preserved.
